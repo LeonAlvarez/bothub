@@ -1,21 +1,40 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import SEO from "../components/seo";
+import styled from "styled-components"
+import tw from "tailwind.macro"
+import "./../style.css";
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const Hero = styled.div`
+  ${tw`flex justify-center items-center`};
+  background: #0575e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #021b79,
+    #0575e6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #021b79,
+    #0575e6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`
+const HeroBlock = styled.div`
+  ${tw`p-6vw`}
+`
+const HeroTitle = styled.h1`
+  ${tw`text-5xl text-white font-sans font-light tracking-wide`};
+  text-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+`
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  <div>
+    <SEO title="BotHub" keywords={[`bots`, `telegram`, `chatbots`]} />
+    <Hero>
+      <HeroBlock>
+        <HeroTitle>Bothub</HeroTitle>
+      </HeroBlock>
+    </Hero>
+  </div>
 )
 
-export default IndexPage
+export default IndexPage;
