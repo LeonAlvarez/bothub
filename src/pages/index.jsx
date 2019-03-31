@@ -1,8 +1,9 @@
 import React from "react";
+import Layout from "../components/layout";
 import SEO from "../components/seo";
 import styled from "styled-components"
 import tw from "tailwind.macro"
-import "./../style.css";
+
 
 const Hero = styled.div`
   ${tw`flex justify-center items-center`};
@@ -27,14 +28,14 @@ const HeroTitle = styled.h1`
 `
 
 const IndexPage = () => (
-  <div>
+  <Layout>
     <SEO title="BotHub" keywords={[`bots`, `telegram`, `chatbots`]} />
     <Hero>
       <HeroBlock>
         <HeroTitle>Bothub</HeroTitle>
       </HeroBlock>
     </Hero>
-  </div>
+  </Layout>
 )
 
 export default IndexPage;
