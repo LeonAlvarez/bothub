@@ -24,11 +24,12 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <main>{children}</main>
-        <footer>
-          BotHub © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <main className="min-h-screen">{children}</main>
+        <footer className="flex font-sans absolute pin-b w-full py-6 mt-12 border-t-2 border-grey-light justify-center">
+          BotHub © {new Date().getFullYear()}, Built with &zwnj;
+          <a class="no-underline" href="https://www.gatsbyjs.org">
+            Gatsby
+          </a>
         </footer>
       </>
     )}
