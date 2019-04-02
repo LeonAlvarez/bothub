@@ -84,7 +84,7 @@ const Search = styled.input`
 `
 
 const Blocks = styled.div`
-  ${tw`max-w-xs md:max-w-lg -mx-3 w-full text-1xl flex flex-wrap mx-auto text-center`}
+  ${tw`w-4/5 max-w-xs sm:max-w-sm md:max-w-full -mx-3 text-1xl flex flex-wrap mx-auto text-center`}
 `
 
 const Block = (props) => {
@@ -132,7 +132,7 @@ const IndexPage = (props) => (
       <Hero>
         <HeroBlock>
           <HeroTitle>BotHub</HeroTitle>
-          <HeroSubTitle>Find the best telegram bots around</HeroSubTitle>
+          <HeroSubTitle>Find the coolest telegram bots</HeroSubTitle>
           <SearchWrapper>
             <Search type="text" placeholder="Search" />
             <SearchIcon />
