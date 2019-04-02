@@ -27,7 +27,7 @@ const Layout = ({ children }) => (
         <main className="min-h-screen relative">{children}</main>
         <footer className="flex font-sans relative pin-b w-full py-6 mt-12 border-t-2 border-grey-light justify-center">
           BotHub © {new Date().getFullYear()}, Built with &zwnj;
-          <a class="no-underline" href="https://www.gatsbyjs.org">
+          <a className="no-underline" href="https://www.gatsbyjs.org">
             Gatsby
           </a>
         </footer>

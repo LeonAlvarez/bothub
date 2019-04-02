@@ -4,7 +4,8 @@ import SEO from "../components/seo";
 import styled from "styled-components"
 import tw from "tailwind.macro"
 import { SearchAlt } from "styled-icons/boxicons-regular"
-
+import Img from 'gatsby-image'
+import { graphql, Link } from "gatsby"
 
 const Hero = styled.div`
   ${tw`flex justify-center items-center pt-10`};
@@ -23,11 +24,12 @@ const Hero = styled.div`
 const HeroBlock = styled.div`
   ${tw`
     p-6vw
-    z-1
+    z-2
     items-center
     justify-center
     flex-col
     flex
+    relative
   `}
 `
 
@@ -81,22 +83,14 @@ const Search = styled.input`
   ${tw`bg-white shadow-lg font-light pr-4 pl-8 py-2 border border-grey rounded-full w-full my-2`}
 `
 
-const Navbar = styled.nav`
-  ${tw`sticky w-100 flex text-white z-10 py-4 flex justify-center`}
-`
-
-const Container = styled.div`
-  ${tw`max-w-xs md:max-w-md w-full text-1xl`}
-`
-
 const Blocks = styled.div`
-  ${tw`max-w-xs md:max-w-lg w-full text-1xl flex flex-wrap mx-auto text-center`}
+  ${tw`max-w-xs md:max-w-lg -mx-3 w-full text-1xl flex flex-wrap mx-auto text-center`}
 `
 
 const Block = (props) => {
-  const {title, text} = props;
+  const {title} = props;
   return (
-    <div className="md:px-4 my-3 md:w-1/3 w-full z-1">
+    <div className="md:px-4 my-3 md:w-1/3 w-full z-2">
       <div className="rounded shadow-lg bg-white p-6 flex flex-col items-center justify-center">
         <h6 className="font-light text-xl capitalize text-lue-darkest">
           {title}
@@ -110,18 +104,27 @@ const Block = (props) => {
   )
 }
 
-const TopMenu = ({props}) =>{
-  
+const Navbar = styled.nav`
+  ${tw`sticky w-100 flex text-white z-10 py-4 flex justify-center`}
+`
+const Container = styled.div`
+  ${tw`px-4 sm:px-0 w-4/5 text-1xl`}
+`
+
+const MenuLink = styled(Link)`
+  ${tw`text-white no-underline leading-normal`}
+`
+const TopMenu = () =>{
   return (
     <Navbar>
       <Container>
-        BotHub
+        <MenuLink to="/"> BotHub </MenuLink>
       </Container>
     </Navbar>
   );
 }
 
-const IndexPage = () => (
+const IndexPage = (props) => (
   <Layout>
     <SEO title="BotHub" keywords={[`bots`, `telegram`, `chatbots`]} />
     <TopMenu />
@@ -135,6 +138,10 @@ const IndexPage = () => (
             <SearchIcon />
           </SearchWrapper>
         </HeroBlock>
+        <div className="absolute w-4/5 -mt-12">
+          <Img fluid={props.data.robotGreen.childImageSharp.fluid} className="hidden lg:block z-1 w-full max-w-xs pin-l -mt-4 pin-t" style={{position: "absolute"}}/>
+          <Img fluid={props.data.firmwareBlue.childImageSharp.fluid} className="hidden lg:block z-1 w-full max-w-xs pin-r mt-12 pin-t" style={{position: "absolute"}}/>
+        </div>
       </Hero>
       <Blocks>
         <Block title="popular" />
@@ -146,3 +153,22 @@ const IndexPage = () => (
 )
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+  query {
+    robotGreen: file(relativePath: { eq: "robot-green.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    },
+    firmwareBlue: file(relativePath: { eq: "firmware-blue.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
