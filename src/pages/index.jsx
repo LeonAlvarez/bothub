@@ -40,16 +40,16 @@ const HeroTitle = styled.h1`
     pb-4
     text-white
     font-sans
-    font-light
+    font-normal
     tracking-wide
   `};
   text-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
 `
 
-const HeroSubTitle = styled.h1`
+const HeroSubTitle = styled.h2`
   ${tw`
-    text-2xl
-    md:text-5xl
+    text-xl
+    md:text-3xl
     text-center
     leading-tight
     pb-4
