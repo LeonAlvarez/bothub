@@ -7,7 +7,7 @@ import { SearchAlt } from "styled-icons/boxicons-regular"
 
 
 const Hero = styled.div`
-  ${tw`flex justify-center items-center pt-12`};
+  ${tw`flex justify-center items-center pt-10`};
   &:after {
     content: "";
     ${tw`absolute h-full w-full overflow-hidden z-0`};
@@ -90,13 +90,13 @@ const Container = styled.div`
 `
 
 const Blocks = styled.div`
-  ${tw`max-w-xs md:max-w-md w-full text-1xl flex flex-wrap mx-auto`}
+  ${tw`max-w-xs md:max-w-lg w-full text-1xl flex flex-wrap mx-auto text-center`}
 `
 
 const Block = (props) => {
   const {title, text} = props;
   return (
-    <div className="px-3 md:w-1/3 w-full z-1">
+    <div className="md:px-4 my-3 md:w-1/3 w-full z-1">
       <div className="rounded shadow-lg bg-white p-6 flex flex-col items-center justify-center">
         <h6 className="font-light text-xl capitalize text-lue-darkest">
           {title}
@@ -125,21 +125,23 @@ const IndexPage = () => (
   <Layout>
     <SEO title="BotHub" keywords={[`bots`, `telegram`, `chatbots`]} />
     <TopMenu />
-    <Hero>
-      <HeroBlock>
-        <HeroTitle>BotHub</HeroTitle>
-        <HeroSubTitle>Find the best telegram bots around</HeroSubTitle>
-        <SearchWrapper>
-          <Search type="text" placeholder="Search" />
-          <SearchIcon />
-        </SearchWrapper>
-      </HeroBlock>
-    </Hero>
-    <Blocks>
-      <Block title="popular" />
-      <Block title="news" />
-      <Block title="hot" />
-    </Blocks>
+    <div className="flex flex-col items-center">
+      <Hero>
+        <HeroBlock>
+          <HeroTitle>BotHub</HeroTitle>
+          <HeroSubTitle>Find the best telegram bots around</HeroSubTitle>
+          <SearchWrapper>
+            <Search type="text" placeholder="Search" />
+            <SearchIcon />
+          </SearchWrapper>
+        </HeroBlock>
+      </Hero>
+      <Blocks>
+        <Block title="popular" />
+        <Block title="news" />
+        <Block title="hot" />
+      </Blocks>
+    </div>
   </Layout>
 )
 
