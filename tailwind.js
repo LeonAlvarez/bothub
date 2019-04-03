@@ -530,6 +530,7 @@ module.exports = {
     "32": "8rem",
     "48": "12rem",
     "64": "16rem",
+    "200": "50rem",
     full: "100%",
     screen: "100vh",
   },
@@ -656,6 +657,7 @@ module.exports = {
     "20": "5rem",
     "24": "6rem",
     "32": "8rem",
+    "64": "16rem",
     "6vw": "6vw",
   },
 
@@ -694,6 +696,7 @@ module.exports = {
     "32": "8rem",
     "36": "9rem",
     "40": "10rem",
+    "48": "12rem",
     "64": "16rem",
   },
 
@@ -729,6 +732,7 @@ module.exports = {
     "20": "5rem",
     "24": "6rem",
     "32": "8rem",
+    "48": "12rem",
   },
 
   /*

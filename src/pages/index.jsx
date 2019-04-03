@@ -6,12 +6,24 @@ import tw from "tailwind.macro"
 import { SearchAlt } from "styled-icons/boxicons-regular"
 import Img from 'gatsby-image'
 import { graphql, Link } from "gatsby"
+import UserAppSVG from "../images/user-app.inline.svg"
 
 const Hero = styled.div`
-  ${tw`flex justify-center items-center pt-10`};
+  ${tw`
+    flex
+    justify-center
+    items-center
+    pt-10
+  `};
   &:after {
     content: "";
-    ${tw`absolute h-full w-full overflow-hidden z-0`};
+    ${tw`
+      absolute
+      h-full
+      w-full
+      overflow-hidden
+      z-0
+    `};
     transform: skewY(-12deg);
     transform-origin: 0;
     background: #021b79;
@@ -64,7 +76,14 @@ const HeroSubTitle = styled.h2`
 `
 
 const SearchWrapper = styled.div`
-  ${tw`relative flex justify-center max-w-xs md:max-w-md w-full `}
+  ${tw`
+    relative
+    flex
+    justify-center
+    max-w-xs
+    md:max-w-md
+    w-full
+  `}
 `
 
 const SearchIcon = styled(SearchAlt)`
@@ -80,11 +99,32 @@ const SearchIcon = styled(SearchAlt)`
 `
 
 const Search = styled.input`
-  ${tw`bg-white shadow-lg font-light pr-4 pl-8 py-2 border border-grey rounded-full w-full my-2`}
+  ${tw`
+    bg-white
+    shadow-lg
+    font-light
+    pr-4
+    pl-8
+    py-2
+    rounded-full
+    w-full
+    my-2
+  `}
 `
 
 const Blocks = styled.div`
-  ${tw`w-4/5 max-w-xs sm:max-w-sm md:max-w-full -mx-3 text-1xl flex flex-wrap mx-auto text-center`}
+  ${tw`
+    w-4/5
+    max-w-xs
+    sm:max-w-sm
+    md:max-w-full
+    -mx-3
+    text-1xl
+    flex
+    flex-wrap
+    mx-auto
+    text-center
+  `}
 `
 
 const Block = (props) => {
@@ -105,14 +145,33 @@ const Block = (props) => {
 }
 
 const Navbar = styled.nav`
-  ${tw`sticky w-100 flex text-white z-10 py-4 flex justify-center`}
+  ${tw`
+    sticky
+    w-100
+    flex
+    text-white
+    z-10
+    py-4
+    flex
+    justify-center
+  `}
 `
 const Container = styled.div`
-  ${tw`px-4 sm:px-0 w-4/5 text-1xl`}
+  ${tw`
+    px-4
+    sm:px-0
+    w-4/5
+    max-w-3xl
+    text-1xl
+  `}
 `
 
 const MenuLink = styled(Link)`
-  ${tw`text-white no-underline leading-normal`}
+  ${tw`
+    text-white 
+    no-underline
+    leading-normal
+  `}
 `
 const TopMenu = () =>{
   return (
@@ -124,7 +183,19 @@ const TopMenu = () =>{
   );
 }
 
-const IndexPage = (props) => (
+const StyledUserAppSVG = styled(UserAppSVG)`
+  ${tw`
+    max-w-md
+    w-full
+    absolute
+    pin-b
+    pin-l
+    -mx-48
+    -mt-6
+  `}
+`
+
+const IndexPage = props => (
   <Layout>
     <SEO title="BotHub" keywords={[`bots`, `telegram`, `chatbots`]} />
     <TopMenu />
@@ -138,9 +209,17 @@ const IndexPage = (props) => (
             <SearchIcon />
           </SearchWrapper>
         </HeroBlock>
-        <div className="absolute w-4/5 -mt-12">
-          <Img fluid={props.data.robotGreen.childImageSharp.fluid} className="hidden lg:block z-1 w-full max-w-xs pin-l -mt-4 pin-t" style={{position: "absolute"}}/>
-          <Img fluid={props.data.firmwareBlue.childImageSharp.fluid} className="hidden lg:block z-1 w-full max-w-xs pin-r mt-12 pin-t" style={{position: "absolute"}}/>
+        <div className="absolute w-4/5 max-w-3xl -mt-12">
+          <Img
+            fluid={props.data.robotGreen.childImageSharp.fluid}
+            className="hidden lg:block z-1 w-full max-w-xs pin-l -mt-4 pin-t"
+            style={{ position: "absolute" }}
+          />
+          <Img
+            fluid={props.data.firmwareBlue.childImageSharp.fluid}
+            className="hidden xl:block z-1 w-full max-w-xs pin-r pin-t"
+            style={{ position: "absolute", marginTop: "26rem" }}
+          />
         </div>
       </Hero>
       <Blocks>
@@ -148,6 +227,20 @@ const IndexPage = (props) => (
         <Block title="news" />
         <Block title="hot" />
       </Blocks>
+      <div className="h-200 pt-64 pl-64 w-4/5 relative hidden md:block">
+        <StyledUserAppSVG />
+        <div className="ml-48 mt-12 bg-white shadow-lg rounded-lg p-12 px-16 max-w-lg relative flex flex-wrap items-center justify-center">
+          <h4 className="text-blue-dark font-normal font-sans leading-normal text-2xl w-100 pb-4 text-center">
+            Lorem ipsum dolor sit amet consectetur mos laudantium
+          </h4>
+          <p className="leading-normal">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+            earum commodi ea quod sed itaque voluptate enim ullam numquam
+            voluptatem hic quis mollitia veniam, doloribus voluptas, facere
+            laboriosam neque sint? 1
+          </p>
+        </div>
+      </div>
     </div>
   </Layout>
 )
