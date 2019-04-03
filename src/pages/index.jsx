@@ -228,7 +228,7 @@ const IndexPage = props => (
         <Block title="hot" />
       </Blocks>
       <div className="h-200 pt-64 pl-48 w-4/5 relative hidden sm:block">
-        <StyledUserAppSVG />
+        <StyledUserAppSVG className="-mx-48" />
         <div className="ml-12 mt-48 bg-white shadow-lg rounded-lg p-12 px-16 max-w-lg relative flex flex-wrap items-center justify-center">
           <h4 className="text-blue-dark font-normal font-sans leading-normal text-2xl w-100 pb-4 text-center">
             Lorem ipsum dolor sit amet consectetur mos laudantium
