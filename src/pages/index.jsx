@@ -7,6 +7,7 @@ import { SearchAlt } from "styled-icons/boxicons-regular"
 import Img from 'gatsby-image'
 import { graphql, Link } from "gatsby"
 import UserAppSVG from "../images/user-app.inline.svg"
+import RobotSVG from "../images/robot.inline.svg"
 
 const Hero = styled.div`
   ${tw`
@@ -188,9 +189,11 @@ const StyledUserAppSVG = styled(UserAppSVG)`
     max-w-md
     w-full
     absolute
-    pin-b
     pin-l
-    -mx-48
+    pin-t
+    -ml-32
+    md:-ml-38
+    lg:-ml-48
     -mt-6
   `}
 `
@@ -209,16 +212,17 @@ const IndexPage = props => (
             <SearchIcon />
           </SearchWrapper>
         </HeroBlock>
-        <div className="absolute w-4/5 max-w-3xl -mt-12">
-          <Img
+        <div className="absolute w-4/5 max-w-3xl">
+          <RobotSVG className="hidden md:block z-1 w-full max-w-xs pin-l relative"/>
+          {/*  <Img
             fluid={props.data.robotGreen.childImageSharp.fluid}
             className="hidden lg:block z-1 w-full max-w-xs pin-l -mt-4 pin-t"
-            style={{ position: "absolute" }}
-          />
+            style={{ position: "absolute", filter: "hue-rotate(60deg)" }}
+          /> */}
           <Img
             fluid={props.data.firmwareBlue.childImageSharp.fluid}
-            className="hidden xl:block z-1 w-full max-w-xs pin-r pin-t"
-            style={{ position: "absolute", marginTop: "26rem" }}
+            className="hidden xl:block z-1 w-full max-w-xs pin-r pin-b"
+            style={{ position: "absolute", marginBottom: "-12rem" }}
           />
         </div>
       </Hero>
@@ -227,9 +231,9 @@ const IndexPage = props => (
         <Block title="news" />
         <Block title="hot" />
       </Blocks>
-      <div className="h-200 pt-64 pl-48 w-4/5 relative hidden sm:block">
-        <StyledUserAppSVG className="-mx-48" />
-        <div className="ml-12 mt-48 bg-white shadow-lg rounded-lg p-12 px-16 max-w-lg relative flex flex-wrap items-center justify-center">
+      <div className="h-200 my-48 pt-64 md:pt-48 w-4/5 relative h-full hidden sm:block">
+        <StyledUserAppSVG />
+        <div className="ml-12 md:ml-64 bg-white shadow-lg rounded-lg p-12 px-16 max-w-lg relative flex flex-wrap items-center justify-center">
           <h4 className="text-blue-dark font-normal font-sans leading-normal text-2xl w-100 pb-4 text-center">
             Lorem ipsum dolor sit amet consectetur mos laudantium
           </h4>

@@ -66,5 +66,5 @@
  }
 
  body {
-   @apply bg-grey-lighter;
+   @apply bg-grey-lighter h-full;
  }
